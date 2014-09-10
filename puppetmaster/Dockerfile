@@ -23,4 +23,9 @@ RUN apt-get install -y puppetmaster puppetdb puppetmaster-passenger
 ADD ./puppetdb/conf.d/config.ini /etc/puppetdb/conf.d/config.ini
 ADD ./puppetdb/conf.d/database.ini /etc/puppetdb/conf.d/database.ini
 
+# Add the initiate.sh script.
+ADD ./initiate.sh /var/initiate.sh
+
 EXPOSE 8140
+
+CMD /bin/bash /var/initiate.sh && tail -f /var/log/syslog
