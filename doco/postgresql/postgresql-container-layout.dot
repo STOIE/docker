@@ -5,7 +5,11 @@ digraph d {
     label="PostgreSQL Container Layout";
 
     prodstagpgq [shape=component, label="PGQ"];
+    staguatpgq [shape=component, label="PGQ"];
+    uatdevpgq [shape=component, label="PGQ"];
     prodstaglondiste [shape=component, label="londiste"];
+    staguatlondiste [shape=component, label="londiste"];
+    uatdevlondiste [shape=component, label="londiste"];
 
     subgraph cluster_prod {
         label="Production";
@@ -35,49 +39,20 @@ digraph d {
             prodhot00a [label="HotStandby00a\n\nPostgreSQL\nwalmgr"];
             prodhot10a [label="HotStandby10a\n\nPostgreSQL\nwalmgr"];
             prodhot20a [label="HotStandby20a\n\nPostgreSQL\nwalmgr"];
-            prodrepstreaming01a [style="invisible",width=0,height=0,fixedsize=true];
-            prodrepstreaming11a [style="invisible",width=0,height=0,fixedsize=true];
-            prodrepstreaming21a [style="invisible",width=0,height=0,fixedsize=true];
-            prodhot01aa [label="HotStandby01aa\n\nPostgreSQL\nwalmgr"];
-            prodhot11aa [label="HotStandby11aa\n\nPostgreSQL\nwalmgr"];
-            prodhot21aa [label="HotStandby21aa\n\nPostgreSQL\nwalmgr"];
-            prodhot01ab [label="HotStandby01ab\n\nPostgreSQL\nwalmgr"];
-            prodhot11ab [label="HotStandby11ab\n\nPostgreSQL\nwalmgr"];
-            prodhot21ab [label="HotStandby21ab\n\nPostgreSQL\nwalmgr"];
             prodhot00b [label="HotStandby00b\n\nPostgreSQL\nwalmgr"];
             prodhot10b [label="HotStandby10b\n\nPostgreSQL\nwalmgr"];
             prodhot20b [label="HotStandby20b\n\nPostgreSQL\nwalmgr"];
-            prodrepstreaming01b [style="invisible",width=0,height=0,fixedsize=true];
-            prodrepstreaming11b [style="invisible",width=0,height=0,fixedsize=true];
-            prodrepstreaming21b [style="invisible",width=0,height=0,fixedsize=true];
-            prodhot01ba [label="HotStandby01ba\n\nPostgreSQL\nwalmgr"];
-            prodhot11ba [label="HotStandby11ba\n\nPostgreSQL\nwalmgr"];
-            prodhot21ba [label="HotStandby21ba\n\nPostgreSQL\nwalmgr"];
-            prodhot01bb [label="HotStandby01bb\n\nPostgreSQL\nwalmgr"];
-            prodhot11bb [label="HotStandby11bb\n\nPostgreSQL\nwalmgr"];
-            prodhot21bb [label="HotStandby21bb\n\nPostgreSQL\nwalmgr"];
+            prodhotbackend [label="HotStandbyBackend\n\nPostgreSQL\nwalmgr\n\n(using: Cascading Replication)\nRecompiling shards\nThis is where a BU is taken."];
 
             prodmaster0 -> prodrepstreaming00;
             prodmaster1 -> prodrepstreaming10;
             prodmaster2 -> prodrepstreaming20;
-            prodrepstreaming00 -> prodhot00a -> prodrepstreaming01a;
-            prodrepstreaming10 -> prodhot10a -> prodrepstreaming11a;
-            prodrepstreaming20 -> prodhot20a -> prodrepstreaming21a;
-            prodrepstreaming00 -> prodhot00b -> prodrepstreaming01b;
-            prodrepstreaming10 -> prodhot10b -> prodrepstreaming11b;
-            prodrepstreaming20 -> prodhot20b -> prodrepstreaming21b;
-            prodrepstreaming01a -> prodhot01aa;
-            prodrepstreaming11a -> prodhot11aa;
-            prodrepstreaming21a -> prodhot21aa;
-            prodrepstreaming01a -> prodhot01ab;
-            prodrepstreaming11a -> prodhot11ab;
-            prodrepstreaming21a -> prodhot21ab;
-            prodrepstreaming01b -> prodhot01ba;
-            prodrepstreaming11b -> prodhot11ba;
-            prodrepstreaming21b -> prodhot21ba;
-            prodrepstreaming01b -> prodhot01bb;
-            prodrepstreaming11b -> prodhot11bb;
-            prodrepstreaming21b -> prodhot21bb;
+            prodrepstreaming00 -> prodhot00a;
+            prodrepstreaming10 -> prodhot10a;
+            prodrepstreaming20 -> prodhot20a;
+            prodrepstreaming00 -> prodhot00b -> prodhotbackend;
+            prodrepstreaming10 -> prodhot10b -> prodhotbackend;
+            prodrepstreaming20 -> prodhot20b -> prodhotbackend;
 
         }
 
@@ -128,13 +103,14 @@ digraph d {
             staghot10a [label="HotStandby10a\n\nPostgreSQL\nwalmgr"];
             staghot00b [label="HotStandby00b\n\nPostgreSQL\nwalmgr"];
             staghot10b [label="HotStandby10b\n\nPostgreSQL\nwalmgr"];
+            staghotbackend [label="HotStandbyBackend\n\nPostgreSQL\nwalmgr\n\n(using: Cascading Replication)\nRecompiling shards\nThis is where a BU is taken."];
 
             stagmaster0 -> stagrepstreaming00;
             stagmaster1 -> stagrepstreaming10;
             stagrepstreaming00 -> staghot00a;
             stagrepstreaming10 -> staghot10a;
-            stagrepstreaming00 -> staghot00b;
-            stagrepstreaming10 -> staghot10b;
+            stagrepstreaming00 -> staghot00b -> staghotbackend;
+            stagrepstreaming10 -> staghot10b -> staghotbackend;
 
         }
 
@@ -150,7 +126,83 @@ digraph d {
 
     }
 
-    prodmaster0 -> prodstagpgq -> stagmaster0;
-    prodmaster0 -> prodstaglondiste -> stagmaster0 [dir="both"];
+    subgraph cluster_uat {
+        label="UAT";
+        subgraph cluster_uatappcluster0 {
+            label="UAT Fee Calc Containers";
+            node [shape=component];
+            uatappserver00 [label="Fee Calc0\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_uatappcluster1 {
+            label="UAT Drupal Containers";
+            node [shape=component];
+            uatappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_uatpgcluster0 {
+            label="UAT DB Environment";
+            node [shape=component];
+            uatmaster0 [label="UATDB0\n\npgbouncer\nPostgreSQL"];
+            uatmaster1 [label="UATDB1\n\npgbouncer\nPostgreSQL"];
+            uatrepstreaming00 [style="invisible",width=0,height=0,fixedsize=true];
+            uatrepstreaming10 [style="invisible",width=0,height=0,fixedsize=true];
+            uathot00a [label="HotStandby00a\n\nPostgreSQL\nwalmgr"];
+            uathot10a [label="HotStandby10a\n\nPostgreSQL\nwalmgr"];
+            uathot00b [label="HotStandby00b\n\nPostgreSQL\nwalmgr"];
+            uathot10b [label="HotStandby10b\n\nPostgreSQL\nwalmgr"];
+            uathotbackend [label="HotStandbyBackend\n\nPostgreSQL\nwalmgr\n\n(using: Cascading Replication)\nRecompiling shards\nThis is where a BU is taken."];
+
+            uatmaster0 -> uatrepstreaming00;
+            uatmaster1 -> uatrepstreaming10;
+            uatrepstreaming00 -> uathot00a;
+            uatrepstreaming10 -> uathot10a;
+            uatrepstreaming00 -> uathot00b -> uathotbackend;
+            uatrepstreaming10 -> uathot10b -> uathotbackend;
+
+        }
+
+        uatappserver00 -> uatmaster0;
+        uatappserver00 -> uatmaster1;
+
+        uatappserver10 -> uatmaster0;
+        uatappserver10 -> uatmaster1;
+
+    }
+
+    subgraph cluster_dev {
+        label="Development";
+        subgraph cluster_devappcluster0 {
+            label="Development Fee Calc Containers";
+            node [shape=component];
+            devappserver00 [label="Fee Calc0\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_devappcluster1 {
+            label="Development Drupal Containers";
+            node [shape=component];
+            devappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_devpgcluster0 {
+            label="Development DB Environment";
+            node [shape=component];
+            devmaster0 [label="DevelopmentDB0\n\npgbouncer\nPostgreSQL"];
+            devmaster1 [label="DevelopmentDB1\n\npgbouncer\nPostgreSQL"];
+            devhot00a [label="HotStandby00a\n\nPostgreSQL\nwalmgr"];
+            devhot10a [label="HotStandby10a\n\nPostgreSQL\nwalmgr"];
+            devhotbackend [label="HotStandbyBackend\n\nPostgreSQL\nwalmgr\n\n(using: Cascading Replication)\nRecompiling shards\nThis is where a BU is taken."];
+
+            devmaster0 -> devhot00a -> devhotbackend;
+            devmaster1 -> devhot10a -> devhotbackend;
+
+        }
+
+        devappserver00 -> devmaster0;
+        devappserver00 -> devmaster1;
+
+        devappserver10 -> devmaster0;
+        devappserver10 -> devmaster1;
+
+    }
+
+    prodmaster0 -> prodstagpgq -> stagmaster0 -> staguatpgq -> uatmaster0 -> uatdevpgq -> devmaster0;
+    prodmaster0 -> prodstaglondiste -> stagmaster0 -> staguatlondiste -> uatmaster0 -> uatdevlondiste -> devmaster0 [dir="both"];
 
 }
