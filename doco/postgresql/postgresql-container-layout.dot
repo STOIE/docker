@@ -1,0 +1,156 @@
+digraph d {
+    // Sell as stay latest stay greatest (supported on LB infrastructure), not supported and you
+    // will be put on a single outdated DB, no patching and be .... in the ....;
+    // And if you hold records, the blame is on you if they are lost. (No backups!!!)
+    label="PostgreSQL Container Layout";
+
+    prodstagpgq [shape=component, label="PGQ"];
+    prodstaglondiste [shape=component, label="londiste"];
+
+    subgraph cluster_prod {
+        label="Production";
+        subgraph cluster_prodappcluster0 {
+            label="Production EPBC Fee Calc Containers (communicating to DB via sharding)";
+            node [shape=component];
+            prodappserver00 [label="EPBC Fee Calc0\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            prodappserver01 [label="EPBC Fee Calc1\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            prodappserver02 [label="EPBC Fee Calc2\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_prodappcluster1 {
+            label="Production Drupal Containers (communicating to DB via sharding)";
+            node [shape=component];
+            prodappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            prodappserver11 [label="Drupal1\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            prodappserver12 [label="Drupal2\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_prodpgcluster0 {
+            label="Production DB Environment";
+            node [shape=component];
+            prodmaster0 [label="ProductionDB0\n\npgbouncer\nPostgreSQL"];
+            prodmaster1 [label="ProductionDB1\n\npgbouncer\nPostgreSQL"];
+            prodmaster2 [label="ProductionDB2\n\npgbouncer\nPostgreSQL"];
+            prodrepstreaming00 [style="invisible",width=0,height=0,fixedsize=true];
+            prodrepstreaming10 [style="invisible",width=0,height=0,fixedsize=true];
+            prodrepstreaming20 [style="invisible",width=0,height=0,fixedsize=true];
+            prodhot00a [label="HotStandby00a\n\nPostgreSQL\nwalmgr"];
+            prodhot10a [label="HotStandby10a\n\nPostgreSQL\nwalmgr"];
+            prodhot20a [label="HotStandby20a\n\nPostgreSQL\nwalmgr"];
+            prodrepstreaming01a [style="invisible",width=0,height=0,fixedsize=true];
+            prodrepstreaming11a [style="invisible",width=0,height=0,fixedsize=true];
+            prodrepstreaming21a [style="invisible",width=0,height=0,fixedsize=true];
+            prodhot01aa [label="HotStandby01aa\n\nPostgreSQL\nwalmgr"];
+            prodhot11aa [label="HotStandby11aa\n\nPostgreSQL\nwalmgr"];
+            prodhot21aa [label="HotStandby21aa\n\nPostgreSQL\nwalmgr"];
+            prodhot01ab [label="HotStandby01ab\n\nPostgreSQL\nwalmgr"];
+            prodhot11ab [label="HotStandby11ab\n\nPostgreSQL\nwalmgr"];
+            prodhot21ab [label="HotStandby21ab\n\nPostgreSQL\nwalmgr"];
+            prodhot00b [label="HotStandby00b\n\nPostgreSQL\nwalmgr"];
+            prodhot10b [label="HotStandby10b\n\nPostgreSQL\nwalmgr"];
+            prodhot20b [label="HotStandby20b\n\nPostgreSQL\nwalmgr"];
+            prodrepstreaming01b [style="invisible",width=0,height=0,fixedsize=true];
+            prodrepstreaming11b [style="invisible",width=0,height=0,fixedsize=true];
+            prodrepstreaming21b [style="invisible",width=0,height=0,fixedsize=true];
+            prodhot01ba [label="HotStandby01ba\n\nPostgreSQL\nwalmgr"];
+            prodhot11ba [label="HotStandby11ba\n\nPostgreSQL\nwalmgr"];
+            prodhot21ba [label="HotStandby21ba\n\nPostgreSQL\nwalmgr"];
+            prodhot01bb [label="HotStandby01bb\n\nPostgreSQL\nwalmgr"];
+            prodhot11bb [label="HotStandby11bb\n\nPostgreSQL\nwalmgr"];
+            prodhot21bb [label="HotStandby21bb\n\nPostgreSQL\nwalmgr"];
+
+            prodmaster0 -> prodrepstreaming00;
+            prodmaster1 -> prodrepstreaming10;
+            prodmaster2 -> prodrepstreaming20;
+            prodrepstreaming00 -> prodhot00a -> prodrepstreaming01a;
+            prodrepstreaming10 -> prodhot10a -> prodrepstreaming11a;
+            prodrepstreaming20 -> prodhot20a -> prodrepstreaming21a;
+            prodrepstreaming00 -> prodhot00b -> prodrepstreaming01b;
+            prodrepstreaming10 -> prodhot10b -> prodrepstreaming11b;
+            prodrepstreaming20 -> prodhot20b -> prodrepstreaming21b;
+            prodrepstreaming01a -> prodhot01aa;
+            prodrepstreaming11a -> prodhot11aa;
+            prodrepstreaming21a -> prodhot21aa;
+            prodrepstreaming01a -> prodhot01ab;
+            prodrepstreaming11a -> prodhot11ab;
+            prodrepstreaming21a -> prodhot21ab;
+            prodrepstreaming01b -> prodhot01ba;
+            prodrepstreaming11b -> prodhot11ba;
+            prodrepstreaming21b -> prodhot21ba;
+            prodrepstreaming01b -> prodhot01bb;
+            prodrepstreaming11b -> prodhot11bb;
+            prodrepstreaming21b -> prodhot21bb;
+
+        }
+
+        prodappserver00 -> prodmaster0;
+        prodappserver00 -> prodmaster1;
+        prodappserver00 -> prodmaster2;
+        prodappserver01 -> prodmaster0;
+        prodappserver01 -> prodmaster1;
+        prodappserver01 -> prodmaster2;
+        prodappserver02 -> prodmaster0;
+        prodappserver02 -> prodmaster1;
+        prodappserver02 -> prodmaster2;
+
+        prodappserver10 -> prodmaster0;
+        prodappserver10 -> prodmaster1;
+        prodappserver10 -> prodmaster2;
+        prodappserver11 -> prodmaster0;
+        prodappserver11 -> prodmaster1;
+        prodappserver11 -> prodmaster2;
+        prodappserver12 -> prodmaster0;
+        prodappserver12 -> prodmaster1;
+        prodappserver12 -> prodmaster2;
+
+    }
+
+    subgraph cluster_staging {
+        label="Staging";
+        subgraph cluster_stagappcluster0 {
+            label="Staging EPBC Fee Calc Containers";
+            node [shape=component];
+            stagappserver00 [label="EPBC Fee Calc0\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            stagappserver01 [label="EPBC Fee Calc1\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_stagappcluster1 {
+            label="Staging Drupal Containers";
+            node [shape=component];
+            stagappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            stagappserver11 [label="Drupal1\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_stagpgcluster0 {
+            label="Staging DB Environment";
+            node [shape=component];
+            stagmaster0 [label="StagingDB0\n\npgbouncer\nPostgreSQL"];
+            stagmaster1 [label="StagingDB1\n\npgbouncer\nPostgreSQL"];
+            stagrepstreaming00 [style="invisible",width=0,height=0,fixedsize=true];
+            stagrepstreaming10 [style="invisible",width=0,height=0,fixedsize=true];
+            staghot00a [label="HotStandby00a\n\nPostgreSQL\nwalmgr"];
+            staghot10a [label="HotStandby10a\n\nPostgreSQL\nwalmgr"];
+            staghot00b [label="HotStandby00b\n\nPostgreSQL\nwalmgr"];
+            staghot10b [label="HotStandby10b\n\nPostgreSQL\nwalmgr"];
+
+            stagmaster0 -> stagrepstreaming00;
+            stagmaster1 -> stagrepstreaming10;
+            stagrepstreaming00 -> staghot00a;
+            stagrepstreaming10 -> staghot10a;
+            stagrepstreaming00 -> staghot00b;
+            stagrepstreaming10 -> staghot10b;
+
+        }
+
+        stagappserver00 -> stagmaster0;
+        stagappserver00 -> stagmaster1;
+        stagappserver01 -> stagmaster0;
+        stagappserver01 -> stagmaster1;
+
+        stagappserver10 -> stagmaster0;
+        stagappserver10 -> stagmaster1;
+        stagappserver11 -> stagmaster0;
+        stagappserver11 -> stagmaster1;
+
+    }
+
+    prodmaster0 -> prodstagpgq -> stagmaster0;
+    prodmaster0 -> prodstaglondiste -> stagmaster0 [dir="both"];
+
+}
