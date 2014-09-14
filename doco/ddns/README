@@ -1,0 +1,13 @@
+Resolv.conf points to all 3 DNS servers.
+These are picked up from docker -d.
+They are all public IP's of the hosts running them.
+
+When a service comes up, it runs a wget to set it's DNS to all 3 servers.
+
+When a DNS server is found unresponsive for N responses:
+* Start new container with param for DNS number..
+* docker run -d ddns dns02.ris.environment.gov.au
+* Should start replacement on "non-broken" container. (not currently already running an instance.)
+* if all are either running or dead... then major alert is raised.
+
+Lighttpd port running auth needs to exist on rando port. (not 80)
