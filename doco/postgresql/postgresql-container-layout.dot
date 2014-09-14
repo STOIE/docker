@@ -93,7 +93,7 @@ digraph d {
             stagappserver11 [label="Drupal1\n\nPHP5-FPM\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_stagfeeder0 {
-            label="Staging PGQ Feeder(communicating to DB via sharding)";
+            label="Staging PGQ Feeder\n(communicating to DB via sharding)";
             node [shape=component];
             stagfeeder00 [label="PGQ Feeder0\n\nPostgreSQL\nPL/Proxy"];
         }
@@ -147,7 +147,7 @@ digraph d {
             uatappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_uatfeeder0 {
-            label="UAT PGQ Feeder(communicating to DB via sharding)";
+            label="UAT PGQ Feeder\n(communicating to DB via sharding)";
             node [shape=component];
             uatfeeder00 [label="PGQ Feeder0\n\nPostgreSQL\nPL/Proxy"];
         }
@@ -197,7 +197,7 @@ digraph d {
             devappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_devfeeder0 {
-            label="Dev PGQ Feeder(communicating to DB via sharding)";
+            label="Dev PGQ Feeder\n(communicating to DB via sharding)";
             node [shape=component];
             devfeeder00 [label="PGQ Feeder0\n\nPostgreSQL\nPL/Proxy"];
         }
