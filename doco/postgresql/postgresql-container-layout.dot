@@ -16,16 +16,16 @@ digraph d {
         subgraph cluster_prodappcluster0 {
             label="Production Fee Calc Containers (communicating to DB via sharding)";
             node [shape=component];
-            prodappserver00 [label="Fee Calc0\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
-            prodappserver01 [label="Fee Calc1\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
-            prodappserver02 [label="Fee Calc2\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            prodappserver00 [label="Fee Calc0\n\nGunicorn\nPostgreSQL\nPL/Proxy"];
+            prodappserver01 [label="Fee Calc1\n\nGunicorn\nPostgreSQL\nPL/Proxy"];
+            prodappserver02 [label="Fee Calc2\n\nGunicorn\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_prodappcluster1 {
             label="Production Drupal Containers (communicating to DB via sharding)";
             node [shape=component];
-            prodappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
-            prodappserver11 [label="Drupal1\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
-            prodappserver12 [label="Drupal2\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            prodappserver10 [label="Drupal0\n\nPHP5-FPM\nPostgreSQL\nPL/Proxy"];
+            prodappserver11 [label="Drupal1\n\nPHP5-FPM\nPostgreSQL\nPL/Proxy"];
+            prodappserver12 [label="Drupal2\n\nPHP5-FPM\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_prodpgcluster0 {
             label="Production DB Environment";
@@ -83,14 +83,19 @@ digraph d {
         subgraph cluster_stagappcluster0 {
             label="Staging Fee Calc Containers";
             node [shape=component];
-            stagappserver00 [label="Fee Calc0\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
-            stagappserver01 [label="Fee Calc1\n\nGunicorn\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            stagappserver00 [label="Fee Calc0\n\nGunicorn\nPostgreSQL\nPL/Proxy"];
+            stagappserver01 [label="Fee Calc1\n\nGunicorn\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_stagappcluster1 {
             label="Staging Drupal Containers";
             node [shape=component];
-            stagappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
-            stagappserver11 [label="Drupal1\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
+            stagappserver10 [label="Drupal0\n\nPHP5-FPM\nPostgreSQL\nPL/Proxy"];
+            stagappserver11 [label="Drupal1\n\nPHP5-FPM\nPostgreSQL\nPL/Proxy"];
+        }
+        subgraph cluster_stagfeeder0 {
+            label="Staging PGQ Feeder(communicating to DB via sharding)";
+            node [shape=component];
+            stagfeeder00 [label="PGQ Feeder0\n\nPostgreSQL\nPL/Proxy"];
         }
         subgraph cluster_stagpgcluster0 {
             label="Staging DB Environment";
@@ -113,6 +118,9 @@ digraph d {
             stagrepstreaming10 -> staghot10b -> staghotbackend;
 
         }
+
+        stagfeeder00 -> stagmaster0;
+        stagfeeder00 -> stagmaster1;
 
         stagappserver00 -> stagmaster0;
         stagappserver00 -> stagmaster1;
@@ -138,6 +146,11 @@ digraph d {
             node [shape=component];
             uatappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
         }
+        subgraph cluster_uatfeeder0 {
+            label="UAT PGQ Feeder(communicating to DB via sharding)";
+            node [shape=component];
+            uatfeeder00 [label="PGQ Feeder0\n\nPostgreSQL\nPL/Proxy"];
+        }
         subgraph cluster_uatpgcluster0 {
             label="UAT DB Environment";
             node [shape=component];
@@ -160,6 +173,9 @@ digraph d {
 
         }
 
+        uatfeeder00 -> uatmaster0;
+        uatfeeder00 -> uatmaster1;
+
         uatappserver00 -> uatmaster0;
         uatappserver00 -> uatmaster1;
 
@@ -180,6 +196,11 @@ digraph d {
             node [shape=component];
             devappserver10 [label="Drupal0\n\nPHP5-FPM\npgbouncer\nPostgreSQL\nPL/Proxy"];
         }
+        subgraph cluster_devfeeder0 {
+            label="Dev PGQ Feeder(communicating to DB via sharding)";
+            node [shape=component];
+            devfeeder00 [label="PGQ Feeder0\n\nPostgreSQL\nPL/Proxy"];
+        }
         subgraph cluster_devpgcluster0 {
             label="Development DB Environment";
             node [shape=component];
@@ -194,6 +215,9 @@ digraph d {
 
         }
 
+        devfeeder00 -> devmaster0;
+        devfeeder00 -> devmaster1;
+
         devappserver00 -> devmaster0;
         devappserver00 -> devmaster1;
 
@@ -202,7 +226,12 @@ digraph d {
 
     }
 
-    prodmaster0 -> prodstagpgq -> stagmaster0 -> staguatpgq -> uatmaster0 -> uatdevpgq -> devmaster0;
-    prodmaster0 -> prodstaglondiste -> stagmaster0 -> staguatlondiste -> uatmaster0 -> uatdevlondiste -> devmaster0 [dir="both"];
+    prodhotbackend -> prodstagpgq -> stagfeeder00;
+    staghotbackend -> staguatpgq -> uatfeeder00;
+    uathotbackend -> uatdevpgq -> devfeeder00;
+
+    prodhotbackend -> prodstaglondiste -> stagfeeder00 [dir="both"];
+    staghotbackend -> staguatlondiste -> uatfeeder00 [dir="both"];
+    uathotbackend -> uatdevlondiste -> devfeeder00 [dir="both"];
 
 }
