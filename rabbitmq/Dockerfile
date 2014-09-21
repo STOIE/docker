@@ -11,3 +11,6 @@ RUN echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.l
 
 RUN apt-get update
 RUN apt-get install -y rabbitmq-server
+
+# Logging + ulimit -n 2048
+# rabbitmqctl start
