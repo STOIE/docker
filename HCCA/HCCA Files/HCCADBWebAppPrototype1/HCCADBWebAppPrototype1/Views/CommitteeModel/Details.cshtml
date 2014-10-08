@@ -1,0 +1,95 @@
+﻿@model HCCADBWebAppPrototype1.Models.CommitteeModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <h2>Committee</h2>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <hr />
+        <h4>Details</h4>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CommitteeName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CommitteeName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CurrentStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CurrentStatus)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-xs-6">
+        <hr />
+        <h4>Areas</h4>
+        <dl class="dl-horizontal">
+            <dd>
+                <table class="table">
+                    @foreach (var item in Model.CommitteeModel_CommitteeAreaOfHealthModels)
+                    {
+                        @Html.DisplayFor(modelItem => item.CommitteeAreaOfHealthModel.AreaOfHealthName)
+                        <text> | </text>
+                    }
+                </table>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row">
+    <hr />
+    <h4>Consumer Representatives</h4>
+    <dl class="dl-horizontal">
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Member Status</th>
+                    <th>Meeting Time</th>
+                    <th>Prep Time</th>
+                </tr>
+                @foreach (var item in Model.ConsumerRepsCommitteeHistoryModels)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConsumerRepModel.FirstName) @Html.DisplayFor(modelItem => item.ConsumerRepModel.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConsumerRepModel.MemberStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Meetingtime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrepTime)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "ConsumerRepCommitteeHistory", new { id = item.ConsumerRepCommitteeHistoryModelID }, null) |
+                        </td>
+                    </tr>
+                }
+                <tr></tr>
+            </table>
+        </dd>
+
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Edit Details", "Edit", new { id = Model.CommitteeModelID }) |
+    @Html.ActionLink("Add Consumer", "AddConsumer", "ConsumerRepCommitteeHistory", new { id = Model.CommitteeModelID }, null) |
+    @Html.ActionLink("Add Area of Health", "AddCommitteeToArea", "CommitteeModel_CommitteeAreaOfHealthModel", new { id = Model.CommitteeModelID }, null) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to Main", "Main", "Main")
+</p>

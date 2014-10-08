@@ -1,0 +1,49 @@
+﻿@model HCCADBWebAppPrototype1.ViewModels.CommitteeIndexViewModel
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create Endorsed Committee", "Create") |
+    @Html.ActionLink("Create UnEndorsed Committee", "CreateStandalone")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Committee Status: @Html.DropDownList("searchByStatus", (SelectList)ViewBag.CommitteeStatuses) |
+        Committee Area: @Html.DropDownList("searchByArea", (SelectList)ViewBag.AreasOfHealth) |
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+    </tr>
+
+    @foreach (var item in Model.CommitteeModels)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommitteeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CommitteeModelID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CommitteeModelID }) |
+                @Html.ActionLink("Set As Past", "SetInActive", new { id = item.CommitteeModelID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CommitteeModelID })
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.CommitteeModels.PageCount < Model.CommitteeModels.PageNumber ? 1 : Model.CommitteeModels.PageNumber) of @Model.CommitteeModels.PageCount
+@Html.PagedListPager(Model.CommitteeModels, page => Url.Action("Index", new { page }))
+@Html.ActionLink("Back to Main", "Index", "Home")

@@ -1,0 +1,74 @@
+﻿@model HCCADBWebAppPrototype1.Models.ConsumerRepCommitteeHistoryModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ConsumerRepCommitteeHistoryModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommitteeModel.CommitteeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommitteeModel.CommitteeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsumerRepModel.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConsumerRepModel.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrepTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meetingtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meetingtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndorsementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndorsementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndorsementType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndorsementType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConsumerRepCommitteeHistoryModelID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

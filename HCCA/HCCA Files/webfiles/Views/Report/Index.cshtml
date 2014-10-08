@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "HCCA Report";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Generate", "Report"))
+{
+    <p>
+        Select Time Period:
+        <br />
+        From @Html.TextBox("startDate") To @Html.TextBox("endDate")
+        <input type="submit" value="Generate" />
+    </p>
+}

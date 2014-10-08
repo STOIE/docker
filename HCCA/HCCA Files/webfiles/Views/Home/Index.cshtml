@@ -1,0 +1,99 @@
+﻿@model HCCADBWebAppPrototype1.ViewModels.MainViewModel
+@using PagedList.Mvc;
+<link href="~/content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Consumer Representatives</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "ConsumerRepModel") |
+    @Html.ActionLink("View All", "Index", "ConsumerRepModel")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("FirstName")
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>*@
+        <th>
+            @Html.DisplayName("Last Name")
+        </th>
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+        <th>
+            @Html.DisplayName("DateTrained")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ConsumerRepModels)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTrained)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "ConsumerRepModel", new { id = item.ConsumerRepModelID }, null) |
+                @Html.ActionLink("Details", "Details", "ConsumerRepModel", new { id = item.ConsumerRepModelID }, null) |
+                @Html.ActionLink("Delete", "Delete", "ConsumerRepModel", new { id = item.ConsumerRepModelID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.ConsumerRepModels.PageCount < Model.ConsumerRepModels.PageNumber ? 1 : Model.ConsumerRepModels.PageNumber) of @Model.ConsumerRepModels.PageCount
+@Html.PagedListPager(Model.ConsumerRepModels, consumerPage => Url.Action("Main", new { consumerPage }))
+
+<h2>Committees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "CommitteeModel") |
+    @Html.ActionLink("View All", "Index", "CommitteeModel")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Committee Name")
+        </th>
+        <th>
+            @Html.DisplayName("Current Status")
+        </th>
+    </tr>
+
+    @foreach (var item in Model.CommitteeModels)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommitteeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "CommitteeModel", new { id = item.CommitteeModelID }, null) |
+                @Html.ActionLink("Details", "Details", "CommitteeModel", new { id = item.CommitteeModelID }, null) |
+                @Html.ActionLink("Delete", "Delete", "CommitteeModel", new { id = item.CommitteeModelID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.CommitteeModels.PageCount < Model.CommitteeModels.PageNumber ? 1 : Model.CommitteeModels.PageNumber) of @Model.CommitteeModels.PageCount
+@Html.PagedListPager(Model.CommitteeModels, committeePage => Url.Action("Index", new { committeePage }))

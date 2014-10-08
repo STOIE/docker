@@ -1,0 +1,43 @@
+﻿@model HCCADBWebAppPrototype1.Models.CommitteeModel
+
+@{
+    ViewBag.Title = "SetInActive";
+}
+
+<h2>SetInActive</h2>
+
+<p class="error">@ViewBag.ErrorMessage</p>
+
+<h3>Are you sure you want to set this to inactive?</h3>
+<div>
+    <h4>CommitteeModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommitteeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommitteeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="SetInActive" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

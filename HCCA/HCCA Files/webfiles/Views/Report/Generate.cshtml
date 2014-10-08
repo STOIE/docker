@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Report generation completed";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<input type="button" value="Download" onclick="location.href='@Url.Action("Download", "Report")'" />
+

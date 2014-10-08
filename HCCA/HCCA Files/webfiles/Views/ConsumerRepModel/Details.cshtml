@@ -1,0 +1,128 @@
+﻿@model HCCADBWebAppPrototype1.Models.ConsumerRepModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <h2>Consumer Represenative</h2>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <hr />
+        <h4>Details</h4>
+        <dl class="dl-horizontal">
+            @*<dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>*@
+            <dt>
+                @Html.DisplayName("Name")
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MemberStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MemberStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EndorsementStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EndorsementStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTrained)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateTrained)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-xs-6">
+        <hr />
+        <h4>Interests</h4>
+        <dl class="dl-horizontal">
+            <dd>
+                <table class="table">
+                    @foreach (var item in Model.ConsumerRepModel_ConsumerRepAreasOfInterestModels)
+                    {
+                        @Html.DisplayFor(modelItem => item.ConsumerRepAreaOfInterestModel.AreaOfInterestName)
+                        <text> | </text>
+                    }
+                </table>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row">
+    <hr />
+    <h4>Committee History</h4>
+
+    <dl class="dl-horizontal">
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Committee Name</th>
+                    <th>Endorsement Date</th>
+                    <th>Endorsement Type</th>
+                    <th>Meeting Time</th>
+                    <th>Prep Time</th>
+                </tr>
+                @foreach (var item in Model.ConsumerRepsCommitteeHistoryModels)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CommitteeModel.CommitteeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndorsementDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndorsementType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Meetingtime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrepTime)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "ConsumerRepCommitteeHistory", new { id = item.ConsumerRepCommitteeHistoryModelID }, null) |
+                        </td>
+                    </tr>
+                }
+                <tr></tr>
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Details", "Edit", new { id = Model.ConsumerRepModelID }) |
+    @Html.ActionLink("Add To Committee", "AddToCommittee", "ConsumerRepCommitteeHistory", new { id = Model.ConsumerRepModelID }, null) |
+    @Html.ActionLink("Add To Interest", "AddConsumerToInterest", "ConsumerRepModel_ConsumerRepAreaOfInterest", new { id = Model.ConsumerRepModelID }, null) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to Main", "Index", "Home")
+</p>

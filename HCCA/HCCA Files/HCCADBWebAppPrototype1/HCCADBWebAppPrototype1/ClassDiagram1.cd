@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HCCADBWebAppPrototype1.BundleConfig" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.FilterConfig" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.RouteConfig" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Startup" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.MvcApplication" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.BusinessLogic.Util_Base" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\Util_Base.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.BusinessLogic.Util_CommitteeModelController" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\Util_CommitteeModelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.BusinessLogic.Util_ConsumerRepModelController" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\Util_ConsumerRepModelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.AccountController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAQCAAAgABAAEAEgEAAAABICIAAEAVAAQkAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.CommitteeAreaOfHealthModelController" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CommitteeAreaOfHealthModelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.CommitteeModel_CommitteeAreaOfHealthModelController" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAQAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CommitteeModel_CommitteeAreaOfHealthModelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.CommitteeModelController" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAAAAAAAAAAAAAAECAEACAAEADAAAAAA=</HashCode>
+      <FileName>Controllers\CommitteeModelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.ConsumerRepAreaOfInterestController" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConsumerRepAreaOfInterestController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.ConsumerRepCommitteeHistoryController" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAAAAAAAAAAQAAAEAIEACAEEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConsumerRepCommitteeHistoryController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.ConsumerRepModel_ConsumerRepAreaOfInterestController" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAgAAAA=</HashCode>
+      <FileName>Controllers\ConsumerRepModel_ConsumerRepAreaOfInterestController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.ConsumerRepModelController">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACARAAAAAAAAAAAAAAEAAEACAAEgAAAAAAA=</HashCode>
+      <FileName>Controllers\ConsumerRepModelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.HomeController" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Controllers.ReportController" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQRAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAA=</HashCode>
+      <FileName>Controllers\ReportController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.DAL.HCCADatabaseContext" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCABAEAAAAAgAAEAAAAAAAAAEAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DAL\HCCADatabaseContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Extensions.HtmlHelperExtensions" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Extensions\HtmlHelperExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.Initial" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201404231208435_Initial.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.addedconsumerrepmoel_consumerrepmodelareaofinterestjointable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201404250605350_added consumerrepmoel_consumerrepmodelareaofinterest join table.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.incorrectIDnameinconsumerrepmodel_consumerepareaofinterestmodelidjointable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201404250624428_incorrect ID name in consumerrepmodel_consumerepareaofinterestmodelid join table.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedAreaOfHealthmodel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201404301037082_updated AreaOfHealth model.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.fixedissuewithareaofhealthjointable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201404301040372_fixed issue with areaofhealth join table.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.removedcontactinfp" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405050958068_removed contact infp.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedcommitteehistorymodel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405051135523_updated committee history model.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.addedReportedDatetocommitteehistorymodel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405051205086_added ReportedDate to committee history model.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedcommittteeandconsumerrepmodels" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405071028274_updated committtee and consumer rep models.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedcommitteemodel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405071054096_updated committee model.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedmodelandseedmethod" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405111026072_updated model and seed method.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedmodelvaliation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405111135167_updated model valiation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedmodeldatatypes" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405111139267_updated model datatypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updatedmodelswithdatatypevalidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405111234395_updated models with datatype validation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.updateddates" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405121148577_updated dates.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.sdasd" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405121152427_sdasd.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Migrations.Configuration" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ExternalLoginConfirmationViewModel" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ManageUserViewModel" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.LoginViewModel" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.RegisterViewModel" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.CommitteeAreaOfHealthModel" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\CommitteeAreaOfHealthModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.CommitteeModel" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQCAAAEgAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\CommitteeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.CommitteeModel_CommitteeAreaOfHealthModel" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAQAAAAAAEABAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\CommitteeModel_CommitteeAreaOfHealthModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ConsumerRepCommitteeHistoryModel" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABEASAAAAAAgAgAAgBAAAAAAAIAAAAEAAAAAAAQA=</HashCode>
+      <FileName>Models\ComsumerRepCommitteeHistoryModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ConsumerRepAreaOfInterestModel" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\ConsumerRepAreaOfInterestModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ConsumerRepModel" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAACAAAAIAAAAAAAAIAAAAIAAAAAAAAAACAAIg=</HashCode>
+      <FileName>Models\ConsumerRepModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ConsumerRepModel_ConsumerRepAreaOfInterestModel" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAgAAAAhAAAAA=</HashCode>
+      <FileName>Models\ConsumerRepModel_ConsumerRepAreaOfInterestModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ApplicationUser" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.Models.ApplicationDbContext" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.AddToInterestConsumerRepViewModel" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AddToInterestConsumerRepViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.CommitteeIndexViewModel" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ViewModels\CommitteeIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.ConsumerRepIndexViewModel" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ConsumerRepIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.CreateCommitteeViewModel" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAIAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ViewModels\CreateCommitteeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.EditConsumeRepViewModel" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>ViewModels\EditConsumeRepViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.MainViewModel" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAACQA=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HCCADBWebAppPrototype1.ViewModels.ReportGenerationViewModel" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ReportGenerationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="HCCADBWebAppPrototype1.Models.CurrentStatus" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CommitteeModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="HCCADBWebAppPrototype1.Models.EndorsementType" Collapsed="true">
+    <Position X="4" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ComsumerRepCommitteeHistoryModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="HCCADBWebAppPrototype1.Models.EndorsementStatus" Collapsed="true">
+    <Position X="2.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ConsumerRepModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="HCCADBWebAppPrototype1.Models.MemberStatus" Collapsed="true">
+    <Position X="5.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ConsumerRepModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,26 @@
+﻿@model HCCADBWebAppPrototype1.Models.CommitteeAreaOfHealthModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CommitteeAreaOfHealthModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaOfHealthName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaOfHealthName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommitteeAreaOfHealthModelID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

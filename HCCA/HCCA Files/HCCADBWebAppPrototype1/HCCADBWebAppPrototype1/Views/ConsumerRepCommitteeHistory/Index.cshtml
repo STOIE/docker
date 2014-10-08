@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HCCADBWebAppPrototype1.Models.ConsumerRepCommitteeHistoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CommitteeModel.CommitteeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConsumerRepModel.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meetingtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndorsementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndorsementType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommitteeModel.CommitteeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConsumerRepModel.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrepTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meetingtime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReportedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndorsementDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndorsementType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ConsumerRepCommitteeHistoryModelID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ConsumerRepCommitteeHistoryModelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ConsumerRepCommitteeHistoryModelID })
+        </td>
+    </tr>
+}
+
+</table>

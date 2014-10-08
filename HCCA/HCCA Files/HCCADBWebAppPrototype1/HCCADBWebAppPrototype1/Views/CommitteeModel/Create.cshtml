@@ -1,0 +1,97 @@
+﻿@model HCCADBWebAppPrototype1.ViewModels.CreateCommitteeViewModel
+@using HCCADBWebAppPrototype1.Extensions
+
+    @{
+        ViewBag.Title = "Create";
+    }
+
+    <h2>Create</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>CommitteeModel</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewCommitteeModel.CommitteeName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewCommitteeModel.CommitteeName)
+                    @Html.ValidationMessageFor(model => model.NewCommitteeModel.CommitteeName)
+                </div>
+            </div>
+
+            <h4>Endorse Consumer Rep Onto Committee</h4>
+            <hr />
+
+            <div class="form-group">
+                @Html.Label("Consumer Rep", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.NewConsumerRepCommitteeHistoryModel.ConsumerRepModelID, Model.ConsumerRepsID)
+                    @Html.ValidationMessageFor(model => model.NewConsumerRepCommitteeHistoryModel.ConsumerRepModelID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewConsumerRepCommitteeHistoryModel.PrepTime, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewConsumerRepCommitteeHistoryModel.PrepTime)
+                    @Html.ValidationMessageFor(model => model.NewConsumerRepCommitteeHistoryModel.PrepTime)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewConsumerRepCommitteeHistoryModel.Meetingtime, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewConsumerRepCommitteeHistoryModel.Meetingtime)
+                    @Html.ValidationMessageFor(model => model.NewConsumerRepCommitteeHistoryModel.Meetingtime)
+                </div>
+            </div> 
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewConsumerRepCommitteeHistoryModel.EndorsementDate, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewConsumerRepCommitteeHistoryModel.EndorsementDate)
+                    @Html.ValidationMessageFor(model => model.NewConsumerRepCommitteeHistoryModel.EndorsementDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewConsumerRepCommitteeHistoryModel.EndorsementType, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.NewConsumerRepCommitteeHistoryModel.EndorsementType)
+                    @Html.ValidationMessageFor(model => model.NewConsumerRepCommitteeHistoryModel.EndorsementType)
+                </div>
+            </div>
+
+            <h4>Committee Area of Health</h4>
+            <hr />
+
+            <div class="form-group">
+                @Html.Label("Committee Area Of Health", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.NewCommitteeAreaOfHealthModel.CommitteeAreaOfHealthModelID, Model.CommitteeAreasOfHealthID)
+                    @Html.ValidationMessageFor(model => model.NewCommitteeAreaOfHealthModel.CommitteeAreaOfHealthModelID)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,50 @@
+﻿@model HCCADBWebAppPrototype1.Models.ConsumerRepModel_ConsumerRepAreaOfInterestModel
+
+@{
+    ViewBag.Title = "AddConsumerToInterest";
+}
+
+<h2>AddConsumerToInterest</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ConsumerRepModel_ConsumerRepAreaOfInterestModel</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConsumerRepModelID, "ConsumerRepModelID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @ViewBag.ConsumerRepModelID
+                @Html.Hidden("ConsumerRepModelID", (object)ViewBag.ConsumerRepModelID.ToString())
+                @Html.ValidationMessageFor(model => model.ConsumerRepModelID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConsumerRepAreaOfInterestModelID, "ConsumerRepAreaOfInterestModelID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ConsumerRepAreaOfInterestModelID", String.Empty)
+                @Html.ValidationMessageFor(model => model.ConsumerRepAreaOfInterestModelID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

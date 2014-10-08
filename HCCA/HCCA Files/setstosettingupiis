@@ -1,0 +1,10 @@
+1. Install Frameworks & SQL Express LocalDb
+2. Create Directory in wwwroot
+3. Create Website and point it to the Directory, Set AppPool to asp.net 4.0
+4. Create Application and point to directory
+5. Drop Files into directory
+6. change application language to c#
+7. add .cshtml to mime types
+8. run: %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regii.exe -ir
+9. Modify C:\Windows\System32\inetsrv\config\applicationHost.config - refer to this blog
+ http://rsuharta.wordpress.com/2012/10/19/provider-sql-network-interfaces-error-50-local-database-runtime-error-occurred-cannot-create-an-automatic-instance-see-the-windows-application-event-log-for-error-details/

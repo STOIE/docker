@@ -1,0 +1,78 @@
+﻿@model HCCADBWebAppPrototype1.ViewModels.ConsumerRepIndexViewModel
+@using PagedList.Mvc;
+<link href="~/content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Consumer Representatives Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <div class="col-xs-12">
+        <div class="row">
+        </div>
+        <br />
+        <div class="row">
+            Date Trained: From @Html.TextBox("startDate") To @Html.TextBox("endDate")
+        </div>
+        <br />
+        <div class="row">
+            Member Status: @Html.DropDownList("SearchByStatus", (SelectList)ViewBag.MemberStatusTypes) |
+            Interest: @Html.DropDownList("searchByInterest", (SelectList)ViewBag.AreasOfInterest) |
+            Name: @Html.TextBox("SearchByName") |
+            <input type="submit" name="search" value="Search" style="text-align: center;" /> |
+            <input type="submit" name="reset" value="Reset" style="text-align: center;" /> |
+        </div>
+        <br />
+    </div>
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam })
+        </th>
+        <th>
+            @Html.DisplayName("Date Trained")
+        </th>
+        <th>
+            @Html.DisplayName("Endorsement Status")
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ConsumerRepModels)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTrained)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndorsementStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ConsumerRepModelID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ConsumerRepModelID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ConsumerRepModelID })
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.ConsumerRepModels.PageCount < Model.ConsumerRepModels.PageNumber ? 1 : Model.ConsumerRepModels.PageNumber) of @Model.ConsumerRepModels.PageCount
+@Html.PagedListPager(Model.ConsumerRepModels, page => Url.Action("Index", new { page }))
+@Html.ActionLink("Back to Main", "Index", "Home")

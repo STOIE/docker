@@ -1,0 +1,73 @@
+﻿@model HCCADBWebAppPrototype1.Models.ConsumerRepCommitteeHistoryModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ConsumerRepCommitteeHistoryModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommitteeModel.CommitteeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommitteeModel.CommitteeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsumerRepModel.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConsumerRepModel.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrepTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meetingtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meetingtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndorsementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndorsementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndorsementType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndorsementType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,82 @@
+﻿@model HCCADBWebAppPrototype1.Models.ConsumerRepCommitteeHistoryModel
+@using HCCADBWebAppPrototype1.Extensions
+
+@{
+    ViewBag.Title = "AddToCommittee";
+}
+
+<h2>Add To Committee</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.Label("Committee", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CommitteeModelID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CommitteeModelID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.ConsumerRepModelID, "ConsumerRepModelID", new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @*@ViewBag.ConsumerRepModelID (*@
+                @Html.Hidden("ConsumerRepModelID", (object)ViewBag.ConsumerRepModelID.ToString())
+                @*@@Html.ValidationMessageFor(model => model.ConsumerRepModelID)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrepTime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrepTime)
+                @Html.ValidationMessageFor(model => model.PrepTime)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Meetingtime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Meetingtime)
+                @Html.ValidationMessageFor(model => model.Meetingtime)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndorsementDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndorsementDate)
+                @Html.ValidationMessageFor(model => model.EndorsementDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndorsementType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.EndorsementType)
+                @Html.ValidationMessageFor(model => model.EndorsementType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Details", "Details", "ConsumerRepModel", new { id = ViewBag.ConsumerRepModelID }, null) 
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
